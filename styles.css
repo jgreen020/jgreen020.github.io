@@ -50,19 +50,69 @@ a:hover {
     margin-left: auto;
 }
 
-.topNav ul a {
+.topNav a {
     display: block;
-    padding: 8px 16px;
+    padding: 8px 8px;
     text-align: center;
     text-decoration: none;
 }
+
+.topNav a:visited {color: var(--accent-2);}
 
 .topNav a:hover {
     background-color: var(--accent-2);
     color: var(--background-color);
 }
 
+.default-img {
+    display: block;
+}
+.hover-image:hover .default-img {
+    display: none;
+}
+
+.hover-img {
+    display: none;
+}
+
+.hover-image:hover .hover-img {
+    display: block
+}
+
 .bottomFoot {
     border-top: 1px solid var(--accent-2);
     padding-top: 10px;
+}
+
+.bottomFoot ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+}
+
+.bottomFoot ul li, 
+.bottomFoot h1, 
+.bottomFoot p {
+    margin: 5px;
+}
+
+.logoList {
+    justify-content: space-between;
+    width: 100%;
+    padding: 0;
+}
+
+.logoList img {
+    width: 20px;
+    height: 20px;
+    display: block;
+}
+
+.copyright {
+    margin-top: 30px;
+    font-size: smaller;
+    color: var(--accent-2);
+    text-align: center;
 }
