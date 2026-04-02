@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <link rel="stylesheet" href="https://use.typekit.net/jjp6bxf.css">
+    <link rel="stylesheet" href="/assets/css/styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <title>P2DI</title>
+    <link rel="icon" sizes="any" type="image/svg+xml" href="/media/favicon.svg">
+    <link rel="icon" type="image/png" href="/media/favicon.png">
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script> 
+</head>
+<body>
+<nav class="topNav">
+    <a class="hover-image" href="/" style="padding: 0;">
+        <ul style="align-items: center;">
+        <li><img class="default-img" src="/assets/images/logo_DarkModeLogo.svg" alt="My Logo" height="37px" width="37px">
+        <img class="hover-img" src="/assets/images/logo_LightModeLogo.svg" alt="My Logo" height="37px" width="37px"></li>
+        <li class="desktop-only" style="font-size: x-large; padding-right: 4px;">Colwell.PhD</li>
+        </ul>
+    </a>
+    <ul>
+        <li><a href="/assets/documents/CV.pdf">CV</a></li>
+        <li><a href="/section/Research.html">Research</a></li>
+        <li><a href="/section/Teaching.html">Teaching</a></li>
+        <li><a href="/section/Personal.html">Personal</a></li>
+    </ul>    
+</nav>
+
+
+<h1 style="text-align: center;">P2DI</h1>
+<img src="/assets/images/Home_Image4_clr.webp" class="banner">
+<p style="text-align: center;">11 Jun 2025 - Jake Colwell</p>
+
+<div class="with-sidebar" id="container">
+<nav class="toc desktop-only" id="source">
+    <ul id="markdown-toc">
+  <li><a href="#features" id="markdown-toc-features">Features</a></li>
+  <li><a href="#bill-of-materials" id="markdown-toc-bill-of-materials">Bill of Materials</a></li>
+  <li><a href="#design-process-see-chirstian-selligs-video-for-a-full-description-of-the-process" id="markdown-toc-design-process-see-chirstian-selligs-video-for-a-full-description-of-the-process">Design Process (see Chirstian Sellig’s Video for a full description of the process)</a></li>
+  <li><a href="#files" id="markdown-toc-files">Files:</a></li>
+  <li><a href="#issues" id="markdown-toc-issues">Issues:</a></li>
+</ul>
+
+</nav>
+
+<div class="sidebar-main" id="main">
+
+  
+
+<p>Inspired by (and following instructions from) YouTube videos by Ben Vallack and Christian Sellig, I have designed my own split, wireless ortholinear keyboard that I call the P2DI. I called it this because when looking at the key layout and squinting a little bit, it looks like a fist with six fingers, so the name is a reference to The Princess Bride.</p>
+
+<h2 id="features">Features</h2>
+<ul>
+  <li>Split</li>
+  <li>Ergonomic</li>
+  <li>Tenting</li>
+  <li>Wireless</li>
+  <li>Hotswapable</li>
+  <li>Silent switches</li>
+  <li>Dampening Foam</li>
+  <li>Magnetic Closure</li>
+  <li>QWERTY Layout</li>
+  <li>Reversible PCB</li>
+</ul>
+
+<h2 id="bill-of-materials">Bill of Materials</h2>
+<ul>
+  <li>Choc Hotswap Sockets from Typeractive.xyz</li>
+  <li>Nice!nano from Typeractive.xyz</li>
+  <li>Battery from Typeractive.xyz</li>
+  <li>Diodes from Typeractive.xyz</li>
+  <li>Battery Jack from Typeractive.xyz</li>
+  <li>Power Swtich from Typeractive.xyz</li>
+  <li>Push Button from Typeractive.xyz</li>
+  <li>Tenting Feet from Typeractive.xyz</li>
+  <li>Switches from Lowprokb.ca</li>
+  <li>Keycaps from chosfox.com</li>
+  <li>PCB from JLCPBC</li>
+  <li>Case from JLC3DP</li>
+  <li>Magnets from McMaster-Carr</li>
+  <li>Magnets from McMaster-Carr</li>
+</ul>
+
+<h2 id="design-process-see-chirstian-selligs-video-for-a-full-description-of-the-process">Design Process (see Chirstian Sellig’s Video for a full description of the process)</h2>
+<ul>
+  <li>Layout, PCB design, and partial case design in Ergogen</li>
+  <li>Finish PCB in KiCad (routing, making small adjustments to satisfy DRC)</li>
+  <li>Design Case in Fusion 360 using drawings from Ergogen</li>
+  <li>ZMK config writing</li>
+  <li>ZMK firmware building in GitHub</li>
+</ul>
+
+<h2 id="files">Files:</h2>
+<ul>
+  <li>GitHub (Ergogen config, ZMK Files)</li>
+  <li>Case (Fusion 360 Project)</li>
+</ul>
+
+<h2 id="issues">Issues:</h2>
+<ul>
+  <li>The power switch and reset button are not accessible from outside the case</li>
+  <li>The magnets are not able to hold the two halves together as intended</li>
+  <li>The holes for the magnets often did not allow the magnets to go all the way in, leading to a gap between the switch plate and the bottom half.</li>
+</ul>
+
+
+</div>
+<div class="desktop-only" id="target">
+</div>
+</div>
+
+<script>
+  const source = document.getElementById('source');
+  const target = document.getElementById('target');
+  const main = document.getElementById('main');
+  const container = document.getElementById('container');
+
+  function getContentWidth(element) {
+    const styles = window.getComputedStyle(element);
+    const padding = parseFloat(styles.paddingLeft) + parseFloat(styles.paddingRight);
+    
+    // clientWidth includes padding but not borders/scrollbars
+    return element.clientWidth - padding;
+  }
+
+  function getMaxWidth(element) {
+    const styles = window.getComputedStyle(element);
+    const padding = parseFloat(styles.paddingLeft) + parseFloat(styles.paddingRight);
+    const maxWidth = parseFloat(styles.maxWidth)
+
+    // clientWidth includes padding but not borders/scrollbars
+    return maxWidth + padding;
+  }
+
+  function centerMainContent() {
+    const width_match = source.offsetWidth;
+    const maxWidth_main = getMaxWidth(main);
+    const maxWidth_source = getMaxWidth(source);
+    const maxWidth_all = maxWidth_main + 2*maxWidth_source;
+    const width_container = getContentWidth(container);
+
+    if (maxWidth_all<width_container) {
+      target.style.width = width_match + 'px';
+    }
+    else {
+      target.style.width = (width_container-maxWidth_source-maxWidth_main) + 'px';
+    }
+  }
+
+  centerMainContent();
+
+  window.addEventListener('resize', () => { centerMainContent(); });
+</script>
+
+<script>
+window.onload = function() {
+
+	var toc = document.querySelector( '.toc' );
+	var tocPath = document.querySelector( '.toc-marker path' );
+	var tocItems;
+
+	// Factor of screen size that the element must cross
+	// before it's considered visible
+	var TOP_MARGIN = 0.1,
+		BOTTOM_MARGIN = 0.2;
+
+	window.addEventListener( 'resize', sync, false );
+	window.addEventListener( 'scroll', sync, false );
+
+	sync();
+
+	function sync() {
+		tocItems = [].slice.call( toc.querySelectorAll( 'li' ) );
+
+		// Cache element references and measurements
+		tocItems = tocItems.map( function( item ) {
+			var anchor = item.querySelector( 'a' );
+			var target = document.getElementById( anchor.getAttribute( 'href' ).slice( 1 ) );
+
+			return {
+				listItem: item,
+				anchor: anchor,
+				target: target
+			};
+		} );
+
+		// Remove missing targets
+		tocItems = tocItems.filter( function( item ) {
+			return !!item.target;
+		} );
+
+		var windowHeight = window.innerHeight;
+
+		var visibleItems = 0;
+
+		tocItems.forEach( function( item ) {
+
+			var targetBounds = item.target.getBoundingClientRect();
+
+			if( targetBounds.bottom > windowHeight * TOP_MARGIN && targetBounds.top < windowHeight * ( 1 - BOTTOM_MARGIN ) ) {
+				item.listItem.classList.add( 'visible' );
+			}
+			else {
+				item.listItem.classList.remove( 'visible' );
+			}
+
+		} );
+	}
+
+};
+</script>
+
+<footer class="bottomFoot">
+    <ul>
+        <li><img src="/assets/images/logo_DarkModeLogo.svg" alt="My Logo" height="72px" width="72px"></li>
+        <li>
+            <ul style="display: block;">
+                <li><h1>Colwell.PhD</h1></li>
+                <li><p>A Jake of all trades is a master of none</p></li>
+                <li>
+                    <ul class="logoList">
+                        <li><a href="https://www.linkedin.com/in/jacob-colwell"><img src="/assets/images/linkedin-logo.svg" alt="LinkedIn"></a></li>
+                        <li><a href="https://orcid.org/0009-0006-9420-6772"><img src="/assets/images/orcid.logo.icon.svg" alt="ORCID"></a></li>
+                        <li><a href="https://scholar.google.com/citations?user=9ZW47dYAAAAJ&hl=en"><img src="/assets/images/googlescholar.ico" alt="Google Scholar"></a></li>
+                        <li><a href="https://github.com/jgreen020"><img src="/assets/images/pinned-octocat-093da3e6fa40.svg" alt="GitHub"></a></li>
+                        <li><a href="https://myanimelist.net/profile/jgreen019"><img src="/assets/images/MALfavicon.svg" alt="My Anime List"></a></li>
+                    </ul>
+            </ul>
+        </li>
+    </ul>
+    <div class="copyright">&copy Jacob Colwell 2026</div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,13 @@
+---
+layout: default
+---
+<h1 style="text-align: center;">{{ page.name }}</h1>
+
+{{ content }}
+
+<ul style="list-style: none;">
+  {% assign filtered_posts = site.posts | where: 'section', page.name %}
+  {% for post in filtered_posts %}
+    <li><a href="{{ post.url }}" class="section-button" style="background-image: url('{{ post.banner }}');"><div class="section-button-txt">{{ post.title }}</div></a></li>
+  {% endfor %}
+</ul>

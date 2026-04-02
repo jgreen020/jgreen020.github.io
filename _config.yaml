@@ -1,0 +1,18 @@
+collections:
+  section:
+    output: true
+defaults:
+  - scope:
+      path: ""
+      type: "sections"
+    values:
+      layout: "section"
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+  - scope:
+      path: ""
+    values:
+      layout: "default"
