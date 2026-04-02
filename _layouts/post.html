@@ -1,0 +1,122 @@
+---
+layout: default
+---
+{% assign parts = page.content | split: "<!-- split -->" %}
+<h1 style="text-align: center;">{{ page.title }}</h1>
+<img src="{{page.banner}}" class="banner">
+<p style="text-align: center;">{{ page.date | date_to_string }} - {{ page.author }}</p>
+
+<div class="with-sidebar" id="container">
+<nav class="toc desktop-only" id="source">
+    {{ parts[0] }}
+</nav>
+
+<div class="sidebar-main" id="main">
+
+  {{ parts[1] }}
+
+</div>
+<div class="desktop-only" id="target">
+</div>
+</div>
+
+<script>
+  const source = document.getElementById('source');
+  const target = document.getElementById('target');
+  const main = document.getElementById('main');
+  const container = document.getElementById('container');
+
+  function getContentWidth(element) {
+    const styles = window.getComputedStyle(element);
+    const padding = parseFloat(styles.paddingLeft) + parseFloat(styles.paddingRight);
+    
+    // clientWidth includes padding but not borders/scrollbars
+    return element.clientWidth - padding;
+  }
+
+  function getMaxWidth(element) {
+    const styles = window.getComputedStyle(element);
+    const padding = parseFloat(styles.paddingLeft) + parseFloat(styles.paddingRight);
+    const maxWidth = parseFloat(styles.maxWidth)
+
+    // clientWidth includes padding but not borders/scrollbars
+    return maxWidth + padding;
+  }
+
+  function centerMainContent() {
+    const width_match = source.offsetWidth;
+    const maxWidth_main = getMaxWidth(main);
+    const maxWidth_source = getMaxWidth(source);
+    const maxWidth_all = maxWidth_main + 2*maxWidth_source;
+    const width_container = getContentWidth(container);
+
+    if (maxWidth_all<width_container) {
+      target.style.width = width_match + 'px';
+    }
+    else {
+      target.style.width = (width_container-maxWidth_source-maxWidth_main) + 'px';
+    }
+  }
+
+  centerMainContent();
+
+  window.addEventListener('resize', () => { centerMainContent(); });
+</script>
+
+<script>
+window.onload = function() {
+
+	var toc = document.querySelector( '.toc' );
+	var tocPath = document.querySelector( '.toc-marker path' );
+	var tocItems;
+
+	// Factor of screen size that the element must cross
+	// before it's considered visible
+	var TOP_MARGIN = 0.1,
+		BOTTOM_MARGIN = 0.2;
+
+	window.addEventListener( 'resize', sync, false );
+	window.addEventListener( 'scroll', sync, false );
+
+	sync();
+
+	function sync() {
+		tocItems = [].slice.call( toc.querySelectorAll( 'li' ) );
+
+		// Cache element references and measurements
+		tocItems = tocItems.map( function( item ) {
+			var anchor = item.querySelector( 'a' );
+			var target = document.getElementById( anchor.getAttribute( 'href' ).slice( 1 ) );
+
+			return {
+				listItem: item,
+				anchor: anchor,
+				target: target
+			};
+		} );
+
+		// Remove missing targets
+		tocItems = tocItems.filter( function( item ) {
+			return !!item.target;
+		} );
+
+		var windowHeight = window.innerHeight;
+
+		var visibleItems = 0;
+
+		tocItems.forEach( function( item ) {
+
+			var targetBounds = item.target.getBoundingClientRect();
+
+			if( targetBounds.bottom > windowHeight * TOP_MARGIN && targetBounds.top < windowHeight * ( 1 - BOTTOM_MARGIN ) ) {
+				item.listItem.classList.add( 'visible' );
+			}
+			else {
+				item.listItem.classList.remove( 'visible' );
+			}
+
+		} );
+	}
+
+};
+</script>
